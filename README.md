@@ -218,6 +218,9 @@ var z = accel.accelerationIncludingGravity.z;
 ### Socket
 This writes to the server. You can see the `emit` method. Whatever data you send will be accessible on the server and written to serial. This can be coordinates, acceloremeter, or isPressed data.
 
+### Server
+
+The node server serves the files and receives browser data from websockets. It also includes a module to write to the serial server. You can process the string that is written to serial in the server.
 
 ## Time to Play!
 
@@ -230,4 +233,3 @@ You can specify what data to send to serial. This will be read by the Arduino in
 ## Thanks!!
 
 You can reach me at `@whichlight` on twitter.
-
