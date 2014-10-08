@@ -127,7 +127,7 @@ var sketch = function(s){
     if(isPressed && (now - timemsg > 100)){
 
       //map data 0-255
-      data = (posX/width * 255).toFixed(0) + "," + (posY/height * 255).toFixed(0);
+      data = (posX/width * 255).toFixed(0) + "," + (posY/height * 255).toFixed(0)+";";
       socket.emit('motion',data);
       timemsg = new Date().getTime();
     }
