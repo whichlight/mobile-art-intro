@@ -26,7 +26,6 @@ var SerialPort = serialport.SerialPort;
   the settings are on the Arduino. This parses via newline
 */
 
-/*
 var serialPort = new SerialPort("/dev/tty.usbmodem1421", {
       baudrate: 9600,
       parser: serialport.parsers.readline("\n")
@@ -35,7 +34,11 @@ var serialPort = new SerialPort("/dev/tty.usbmodem1421", {
 serialPort.on("open", function () {
     console.log('open');
 });
-*/
+
+serialPort.on("data", function (data) {
+  console.log('receiving data');
+  console.log(data);
+});
 
 
 /*
@@ -65,17 +68,15 @@ io.sockets.on('connection', function (socket) {
   socket.on('motion', function (data) {
 
     // Data is logged to the console
-    console.log(data);
+    console.log("sending data to serial " + data);
 
     /*
       When data is read from the socket, it is written to the serial port
     */
 
-    /*
     serialPort.write(data, function(err, res){
       if (err) console.log('err '+err);
     });
-    */
 
   });
 });

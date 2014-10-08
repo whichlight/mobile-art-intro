@@ -125,7 +125,10 @@ var sketch = function(s){
     //every 200 ms emit message
     var now = new Date().getTime();
     if(isPressed && (now - timemsg > 100)){
-      socket.emit('motion',{x: posX, y: posY});
+
+      //map data 0-255
+      data = (posX/width * 255).toFixed(0) + "," + (posY/height * 255).toFixed(0);
+      socket.emit('motion',data);
       timemsg = new Date().getTime();
     }
   }
